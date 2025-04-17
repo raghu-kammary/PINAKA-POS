@@ -1,0 +1,1190 @@
+{
+	"info": {
+		"_postman_id": "3731fc8a-185b-4dac-aa2f-629760d8e3d0",
+		"name": "Pinaka APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6611525"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "emp_login_pin",
+							"value": "999999",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pinaka@123",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Fastkeyyy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fastkey_title",
+							"value": "My New FastKey one",
+							"type": "text"
+						},
+						{
+							"key": "fastkey_index",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "fastkey_image",
+							"type": "file",
+							"src": "postman-cloud:///1f00e4c0-1bfd-4d60-84ed-5894dff18a9b"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/fastkeys/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"fastkeys",
+						"create"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"https://yourwebsite.com/wp-json/your-namespace/v1/create-fastkey\" \\\r\n-H \"Content-Type: multipart/form-data\" \\\r\n-F \"fastkey_title=My New FastKey\" \\\r\n-F \"fastkey_index=1\" \\\r\n-F \"fastkey_image=@/path/to/image.jpg\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/token/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"token",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDU2MTMxMiwibmJmIjoxNzQwNTYxMzEyLCJleHAiOjE3NDMxNTMzMTIsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PEvIFB_tEU2DC0JU1GLcH0VzecQScN8IQxaIfOM_3_M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Payment for Order #1234\",\r\n  \"order_id\": 1234,\r\n  \"amount\": 100.50,\r\n  \"payment_method\": \"Cash\",\r\n  \"shift_id\": 567,\r\n  \"vendor_id\": 789,\r\n  \"user_id\": 10,\r\n  \"service_type\": \"Purchase\",\r\n  \"datetime\": \"2024-02-24T12:30:00\",\r\n  \"notes\": \"Paid in full\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/payments/create-payment",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"payments",
+						"create-payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Vendor Payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDU2MTMxMiwibmJmIjoxNzQwNTYxMzEyLCJleHAiOjE3NDMxNTMzMTIsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PEvIFB_tEU2DC0JU1GLcH0VzecQScN8IQxaIfOM_3_M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Payment for vendor id #96\",\r\n  \"vendor_id\": 96,\r\n  \"amount\": 100.50,\r\n  \"payment_method\": \"Cash\",\r\n  \"shift_id\": 119,\r\n  \"user_id\": 2,\r\n  \"service_type\": \"Purchase\",\r\n  \"datetime\": \"2024-02-24T12:30:00\",\r\n  \"notes\": \"Paid in full\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/vendor_payments/create-vendor-payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"vendor_payments",
+						"create-vendor-payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDU2MTMxMiwibmJmIjoxNzQwNTYxMzEyLCJleHAiOjE3NDMxNTMzMTIsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PEvIFB_tEU2DC0JU1GLcH0VzecQScN8IQxaIfOM_3_M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 155.00,\r\n  \"payment_method\": \"Cash\",\r\n  \"shift_id\": 567,\r\n  \"user_id\": 2,\r\n  \"service_type\": \"Purchase\",\r\n  \"datetime\": \"2024-02-24T12:30:00\",\r\n  \"notes\": \"Paid in full\",\r\n  \"post_id\":114\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/payments/update-payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"payments",
+						"update-payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shifts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Morning Shift - John Doe\",\r\n  \"start_time\": \"2024-02-24T08:00:00\",\r\n  \"assigned_staff\": 10,\r\n  \"total_sales\": 500.75,\r\n  \"safe_drop_total\": 100.00,\r\n  \"opening_balance\": 200.00,\r\n  \"closing_balance\": 600.75,\r\n  \"shift_notes\": \"Smooth shift, no issues.\",\r\n  \"cash_count_details\": \"Cash: $500, Card: $200, Other: $50\",\r\n  \"status\": \"Open\",\r\n  \"user_id\":2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/shifts/create-shift",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"shifts",
+						"create-shift"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Shifts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"end_time\": \"2024-02-24T20:00:00\",\r\n  \"assigned_staff\": 10,\r\n  \"total_sales\": 900.75,\r\n  \"safe_drop_total\": 100.00,\r\n  \"opening_balance\": 200.00,\r\n  \"closing_balance\": 600.75,\r\n  \"shift_notes\": \"Smooth shift, no issues.\",\r\n  \"cash_count_details\": \"Cash: $500, Card: $200, Other: $50\",\r\n  \"status\": \"In Progress\",\r\n  \"post_id\": 116,   \r\n  \"user_id\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/shifts/update-shift",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"shifts",
+						"update-shift"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payments By User Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/payments/get_payments_by_user_id?user_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"payments",
+						"get_payments_by_user_id"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shifts By User Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/shifts/get-shifts-by-user?user_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"shifts",
+						"get-shifts-by-user"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shifts By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MTYwNzgzMywibmJmIjoxNzQxNjA3ODMzLCJleHAiOjE3NDQxOTk4MzMsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.AzUcmD4BNGUXHrrv3n4BcUn2lEwEkQtsW68ytJfW1ZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/shifts/get-shift-by-id?shift_id=119",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"shifts",
+						"get-shift-by-id"
+					],
+					"query": [
+						{
+							"key": "shift_id",
+							"value": "119"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payments By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/payments/get-payment-by-id?payment_id=115",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"payments",
+						"get-payment-by-id"
+					],
+					"query": [
+						{
+							"key": "payment_id",
+							"value": "115"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payments By Order Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/payments/get-payments-by-order-id?order_id=1236",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"payments",
+						"get-payments-by-order-id"
+					],
+					"query": [
+						{
+							"key": "order_id",
+							"value": "1236"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0MDY0OTU1NywibmJmIjoxNzQwNjQ5NTU3LCJleHAiOjE3NDMyNDE1NTcsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.PIQ4tQ8XNRn9P-qutmvzaAl6GCPL9kEgZtdZ04JLpCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pinaka/wp-json/pinaka-pos/v1/payments/delete-payment?payment_id=114",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pinaka",
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"payments",
+						"delete-payment"
+					],
+					"query": [
+						{
+							"key": "payment_id",
+							"value": "114"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/products?page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products with Pagination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/products?page=1&limit=9",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/wc/v3/products/categories?page=1&per_page=100&hide_empty=true&parent=0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"wc",
+						"v3",
+						"products",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "100"
+						},
+						{
+							"key": "hide_empty",
+							"value": "true"
+						},
+						{
+							"key": "parent",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products By Category ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/products-by-category/17",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"products-by-category",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Fast keys",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fastkey_title",
+							"value": "My Fast Key five",
+							"type": "text"
+						},
+						{
+							"key": "fastkey_index",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "fastkey_image",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/fastkeys/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"fastkeys",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Products in Fast keys",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"fastkey_id\": 164,\r\n   \"products\": [\r\n      {\r\n         \"product_id\": 75,\r\n         \"sl_number\": 2\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/fastkeys/add-products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"fastkeys",
+						"add-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fast Keys By User Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/fastkeys/get-by-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"fastkeys",
+						"get-by-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fast Key products by Fast Key ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0Mjk3NDIxMCwibmJmIjoxNzQyOTc0MjEwLCJleHAiOjE3NDU1NjYyMTAsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.Z5dsFMhfssvXBbgirSmIhTu7ghAfmJ03hPz90hWE8_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/fastkeys/get-by-fastkey-id/163",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"fastkeys",
+						"get-by-fastkey-id",
+						"163"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"payment_method\": \"cash\",\r\n  \"payment_method_title\": \"POS-CASH\",\r\n  \"set_paid\": true,\r\n  \"wps_cart_points\": \"\",\r\n  \"status\": \"completed\",\r\n  \"currency\": null,\r\n  \"customer_id\": null,\r\n  \"customer_note\": \"\",\r\n  \"parent_id\": null,\r\n  \"meta_data\": [\r\n    {\r\n      \"key\": \"pos_device_id\",\r\n      \"value\": \"b31b723b92047f4b\"\r\n    },\r\n    {\r\n      \"key\": \"shift_id\",\r\n      \"value\": \"2\"\r\n    },\r\n    {\r\n      \"key\": \"pos_placed_by\",\r\n      \"value\": \"pinakapos\"\r\n    },\r\n    {\r\n      \"key\": \"pos_cash_paid\",\r\n      \"value\": \"18.0\"\r\n    }\r\n  ],\r\n  \"fee_lines\": [],\r\n  \"line_items\": [\r\n    {\r\n      \"product_id\": 71,\r\n      \"name\": \"Shoes\",\r\n      \"subtotal\": \"36.00\",\r\n      \"total\": \"18.00\",\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"product_id\": 79,\r\n      \"name\": \"Hat\",\r\n      \"subtotal\": \"12.00\",\r\n      \"total\": \"12.00\",\r\n      \"quantity\": 1\r\n    }\r\n  ],\r\n  \"tax_lines\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/orders",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "taxes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/wc/v3/taxes?orderby=priority&class=standard",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"wc",
+						"v3",
+						"taxes"
+					],
+					"query": [
+						{
+							"key": "orderby",
+							"value": "priority"
+						},
+						{
+							"key": "class",
+							"value": "standard"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Child Categories By Parent Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/wc/v3/products/categories?page=1&per_page=100&hide_empty=true&parent=16",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"wc",
+						"v3",
+						"products",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "100"
+						},
+						{
+							"key": "hide_empty",
+							"value": "true"
+						},
+						{
+							"key": "parent",
+							"value": "16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products By Cat Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wp-json/wc/v3/products?page=1&per_page=50&order=desc&meta_key=_stock&category=20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"wc",
+						"v3",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "50"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						},
+						{
+							"key": "meta_key",
+							"value": "_stock"
+						},
+						{
+							"key": "category",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Fast Key",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/wp-json/pinaka-pos/v1/fastkeys/delete-fastkey/166",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wp-json",
+						"pinaka-pos",
+						"v1",
+						"fastkeys",
+						"delete-fastkey",
+						"166"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "jwt",
+		"jwt": [
+			{
+				"key": "algorithm",
+				"value": "HS256",
+				"type": "string"
+			},
+			{
+				"key": "isSecretBase64Encoded",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "payload",
+				"value": "{}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "queryParamKey",
+				"value": "token",
+				"type": "string"
+			},
+			{
+				"key": "header",
+				"value": "{}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://pinakapos.techkumard.com",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BpbmFrYSIsImlhdCI6MTc0Mjk3NDIxMCwibmJmIjoxNzQyOTc0MjEwLCJleHAiOjE3NDU1NjYyMTAsImRhdGEiOnsidXNlciI6eyJpZCI6MiwiZGV2aWNlIjoiIiwicGFzcyI6IjhhNzdiOWNjOGM3YzVmYTM4ODA0ZTkxZDQ3N2E5NjBjIn19fQ.Z5dsFMhfssvXBbgirSmIhTu7ghAfmJ03hPz90hWE8_w",
+			"type": "string"
+		}
+	]
+}

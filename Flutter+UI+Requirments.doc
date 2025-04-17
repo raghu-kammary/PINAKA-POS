@@ -1,0 +1,379 @@
+Message-ID: <353523072.15.1742809215461@c91d76bffa6f>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_14_310764778.1742809215461"
+
+------=_Part_14_310764778.1742809215461
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Flutter UI Requirments</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Flutter UI Requirments</h1>
+    <div class=3D"Section1">
+        <ol start=3D"1">
+<li>
+<p>Material UI</p></li>
+<li>
+<p>Floating Buttons</p></li>
+<li>
+<p>Buttons ( Image / system )</p></li>
+<li>
+<p>Slider buttons</p></li>
+<li>
+<p>Search box</p></li>
+<li>
+<p>Drop down</p></li>
+<li>
+<p>Text Box</p></li>
+<li>
+<p>Virtual Number Pad</p></li>
+<li>
+<p>Grids</p></li>
+<li>
+<p>Expanded items</p></li>
+<li>
+<p>Lists</p></li>
+<li>
+<p>Carousal vertical / horizontal with left and right</p></li>
+<li>
+<p>DatePicker (MM / dd / yyyy)</p></li>
+<li>
+<p>Tabs</p></li>
+<li>
+<p>Navigation Bar</p></li>
+<li>
+<p>Dialogs ( alert/ warning)</p></li>
+<li>
+<p>PDF Viewer</p></li>
+<li>
+<p>Icons and logos</p></li>
+<li>
+<p>Images</p></li>
+<li>
+<p>Menu bar</p></li>
+<li>
+<p>Cards</p></li>
+<li>
+<p>Theme and colors</p></li>
+<li>
+<p>Stacks and containers</p></li>
+<li>
+<p>Animations ( hero )</p></li>
+<li>
+<p>Loading UI</p></li>
+<li>
+<p>Fonts and types</p></li>
+<li>
+<p>Labels and tags</p></li>
+<li>
+<p>Hex Color Converter.</p></li>
+<li>
+<p>Multiple Image Picker with Add and Remove image</p></li>
+<li>
+<p>DataTable Utility</p></li>
+<li>
+<p>LazyLoading or Infinite Loading</p></li>
+<li>
+<p>Barcode UI</p></li>
+</ol>
+<p>Resolution : 1920x1080 (15=E2=80=9D)</p>
+<p></p>
+<ul>
+<li>
+<p>Adding items will be taken as it is from figma</p></li>
+<li>
+<p>Category will be having same as fast key, instead of left the menu will =
+be on top</p></li>
+<li>
+<p>Order/Cart panel will be taken from <span class=3D"inline-comment-marker=
+" data-ref=3D"36b0f1a7-d81b-4b2a-adba-0a3226903530">MagniPOS</span> for ref=
+erences, Only for tab section</p></li>
+<li>
+<p><span class=3D"inline-comment-marker" data-ref=3D"3c32c7d6-6f87-4462-816=
+4-e0130587c402">ModiSoft Changes ( Body panel vs Oder panel ), </span><a cl=
+ass=3D"confluence-userlink user-mention" data-account-id=3D"5b4351534649a35=
+be6ef91a6" href=3D"https://pinakapos.atlassian.net/wiki/people/5b4351534649=
+a35be6ef91a6?ref=3Dconfluence" target=3D"_blank" data-linked-resource-id=3D=
+"589826" data-linked-resource-version=3D"1" data-linked-resource-type=3D"us=
+erinfo" data-base-url=3D"https://pinakapos.atlassian.net/wiki">Shravan Bele=
+</a> will share the links for reference, <span style=3D"background-color: r=
+gb(211,241,167);">done shared on 10th Dec</span>.</p></li>
+<li>
+<p><span style=3D"background-color: rgb(254,222,200);">Footer in order pane=
+l to be designed by</span> <a class=3D"confluence-userlink user-mention" da=
+ta-account-id=3D"5b4351534649a35be6ef91a6" href=3D"https://pinakapos.atlass=
+ian.net/wiki/people/5b4351534649a35be6ef91a6?ref=3Dconfluence" target=3D"_b=
+lank" data-linked-resource-id=3D"589826" data-linked-resource-version=3D"1"=
+ data-linked-resource-type=3D"userinfo" data-base-url=3D"https://pinakapos.=
+atlassian.net/wiki">Shravan Bele</a></p></li>
+<li>
+<p><span style=3D"background-color: rgb(254,222,200);">Device for UI testin=
+g should be provided</span> <a class=3D"confluence-userlink user-mention" d=
+ata-account-id=3D"5b4351534649a35be6ef91a6" href=3D"https://pinakapos.atlas=
+sian.net/wiki/people/5b4351534649a35be6ef91a6?ref=3Dconfluence" target=3D"_=
+blank" data-linked-resource-id=3D"589826" data-linked-resource-version=3D"1=
+" data-linked-resource-type=3D"userinfo" data-base-url=3D"https://pinakapos=
+.atlassian.net/wiki">Shravan Bele</a></p></li>
+<li>
+<p><span style=3D"background-color: rgb(254,222,200);">Summary page for pay=
+ment to be designed by</span> <a class=3D"confluence-userlink user-mention"=
+ data-account-id=3D"5b4351534649a35be6ef91a6" href=3D"https://pinakapos.atl=
+assian.net/wiki/people/5b4351534649a35be6ef91a6?ref=3Dconfluence" target=3D=
+"_blank" data-linked-resource-id=3D"589826" data-linked-resource-version=3D=
+"1" data-linked-resource-type=3D"userinfo" data-base-url=3D"https://pinakap=
+os.atlassian.net/wiki">Shravan Bele</a></p></li>
+<li>
+<p><span style=3D"background-color: rgb(254,222,200);">Shifts , Login/Logou=
+t and clock in/ out to be designed by</span> <a class=3D"confluence-userlin=
+k user-mention" data-account-id=3D"5b4351534649a35be6ef91a6" href=3D"https:=
+//pinakapos.atlassian.net/wiki/people/5b4351534649a35be6ef91a6?ref=3Dconflu=
+ence" target=3D"_blank" data-linked-resource-id=3D"589826" data-linked-reso=
+urce-version=3D"1" data-linked-resource-type=3D"userinfo" data-base-url=3D"=
+https://pinakapos.atlassian.net/wiki">Shravan Bele</a></p></li>
+<li>
+<p>Setting Screen can taken from MagniPOS</p></li>
+<li>
+<p><span class=3D"inline-comment-marker" data-ref=3D"ee7c562f-45d4-4ba1-977=
+c-b673a9d33227">Device settings , connectivity to peripherals, should be se=
+parate tab under setting menu, we will use MagniSoft POS for reference</spa=
+n></p></li>
+<li>
+<p>User role modification (if available)</p></li>
+<li>
+<p><span class=3D"inline-comment-marker" data-ref=3D"d495aa33-7c68-453e-b17=
+0-ed2a220ea0c8">Deleted items or orders should be maintained for statistics=
+, reports and should be maintained on woocomerce, Lets decide what details =
+need to be captured (order id, item id, item name, unit, sku, price), used =
+for employees performance </span></p></li>
+<li>
+<p>In Order list sorting order should be items, discounts, coupons, payouts=
+ =E2=80=A6, always reorder based on items added.</p></li>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+    </div>
+</body>
+</html>
+------=_Part_14_310764778.1742809215461--
