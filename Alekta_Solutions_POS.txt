@@ -1,6 +1,0 @@
-Pinaka/clover POS (Point Of Sale) is a one stop solution for convenience store
-which address basic operation at the store including purchase requisition/Order.
-Features include Cash Back Fee, age verification, EBT sales, payouts with additional
-features like employee shifts, Coupons and Discounts with easy footer menu key access.
-Categories, payouts, Apps, History and Customer items.!!!
-
